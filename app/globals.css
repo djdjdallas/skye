@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+    /* 16px minimum body text. Never smaller for real content. */
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Visible focus rings for keyboard users. Never remove these. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold ring-offset-2 ring-offset-cream;
+  }
+
+  /* Respect users who get motion sick. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Small uppercase label used above section headings. */
+  .eyebrow {
+    @apply text-sm font-semibold uppercase tracking-[0.18em] text-gold-600;
+  }
+}
